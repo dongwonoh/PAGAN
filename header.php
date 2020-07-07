@@ -61,13 +61,13 @@ echo   ']</title>
 		<meta property="og:description" content=""/>
 		<meta property="og:type" content="website"/>
 
-		<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/base.css" />
 		';
 
 if(isset($css)){
 	foreach ($css as &$style) {
 		echo
-			'<link rel="stylesheet" type="text/css" href="/static/css/'.$style.'" />
+			'<link rel="stylesheet" type="text/css" href="static/css/'.$style.'" />
 			';
 	}
 }
