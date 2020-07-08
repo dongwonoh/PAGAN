@@ -19,11 +19,11 @@ Your database needs the following tables set up:
 * **`reg_keys`**: `id, secret, created_at`
 * **`users`**: `id, username, email, affiliation, password, created_at`
 * **`password_resets`**: `id, email, token, created_at`
-* **`projects`**: `id, user_name, project_id, project_name, target, type, source_type, video_loading, endless, n_of_entries, n_of_participant_runs, end_message, survey_link, sound, start_message, archived, upload_message, autofill_id, created_at`
+* **`projects`**: `id, username, project_id, project_name, target, type, source_type, video_loading, endless, n_of_entries, n_of_participant_runs, end_message, survey_link, sound, start_message, archived, upload_message, autofill_id, created_at`
 * **`project_entries`**: `id, project_id, entry_id, source_type, source_url, original_name, type, created_at`
 * **`logs`**: `id, project_id, participant_id, session_id, time_stamp, videotime, annotation_value, original_name, annotation_type, entry_id`
 
-If you are not experienced with mySQL or just want to set up the application qickly, here are the mySQL commands with which you can set up everything in one go:
+If you are not experienced with mySQL or just want to set up the application quickly, here are the mySQL commands with which you can set up everything in one go:
 
 **reg_keys**
 ```sql
@@ -39,7 +39,7 @@ CREATE TABLE reg_keys (
 ```sql
 CREATE TABLE users (
 	id INT(11) NOT NULL AUTO_INCREMENT,
-    user_name VARCHAR(50),
+    username VARCHAR(50),
     email VARCHAR(50),
     affiliation VARCHAR(50),
     password VARCHAR(255),
@@ -63,7 +63,7 @@ CREATE TABLE password_resets (
 ```sql
 CREATE TABLE projects (
     id INT(11) NOT NULL AUTO_INCREMENT,
-    user_name VARCHAR(50),
+    username VARCHAR(50),
     project_id VARCHAR(36),
     project_name VARCHAR(100),
     target VARCHAR(30),
@@ -115,4 +115,10 @@ CREATE TABLE logs (
     entry_id VARCHAR(36),
    	PRIMARY KEY (id)
 );
+
+After the initial set up, you will want to create a registration key for the first user. Shown below as an example is how to create a registration key of "aBcD3f".
+
+**reg_keys (additional)** 
+```sql
+INSERT INTO reg_keys (secret) VALUES ('aBcD3f');
 ```
