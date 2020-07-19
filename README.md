@@ -122,7 +122,7 @@ The platform handles passwords in a secure way, and subsequently does not allow 
 
 To create a new registration key, you can use the following SQL commad:
 ```sql
-INSERT INTO reg_keys (secret) VALUES (123456);
+INSERT INTO reg_keys (secret) VALUES ("123456");
 ```
 After the key has been created, you can register on your own platform with the *123456* key.
 
